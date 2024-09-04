@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "html-editor-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/htmlEditor/HtmlEditorWebPart.js",
+          "manifest": "./src/webparts/htmlEditor/HtmlEditorWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "HtmlEditorWebPartStrings": "lib/webparts/htmlEditor/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

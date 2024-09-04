@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "HTML Editor WebPart",
+    "title" :"HTML Editor WebPart",
+    "iconPath": "assets/appicon.png",
+    "id": "882cc9df-8065-4c8a-99c1-fac9908cb45e",
+    "version": "1.0.0.0",
+    "supportedLocales": [
+       "en-us",
+       "fr-fr"
+     ],
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Redsen",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Allows contributors to securely add HTML/CSS code in their SharePoint pages",
+        "fr-fr": "Permet aux contributeurs de pouvoir ajouter du code HTML/CSS sur leur page de manière sécurisée"
+      },
+      "longDescription": {
+        "default": "Allows contributors to securely add HTML/CSS code in their SharePoint pages",
+        "fr-fr": "Permet aux contributeurs de pouvoir ajouter du code HTML/CSS sur leur page de manière sécurisée"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": [
+        "Content management",
+        "Site Design",
+        "Collaboration"
+      ]
+    },
+    "features": [
+      {
+        "title": "html-editor Feature",
+        "description": "The feature that activates elements of the html-editor solution.",
+        "id": "cb898c92-f4ef-430a-b9d1-f754e17d7b03",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/HTMLEditor.sppkg"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.19.0",
+    "libraryName": "html-editor",
+    "libraryId": "882cc9df-8065-4c8a-99c1-fac9908cb45e",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "HTMLEditor",
+    "solutionShortDescription": "HTMLEditor description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

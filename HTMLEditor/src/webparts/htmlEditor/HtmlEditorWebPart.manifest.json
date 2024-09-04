@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "8ae32bdd-1f96-4cf1-a6aa-637e23c3e158",
+  "alias": "HtmlEditorWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "SharePointFullPage"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Advanced" },
+    "title": { 
+      "default": "HTML Editor",
+      "fr-fr": "Editeur HTML"
+    },
+    "description": { 
+      "default": "Securely add your HTML markup and associated styles to your page",
+      "fr-fr": "Ajoutez de manière sécurisée votre code HTML et les styles associés à votre page"
+    },
+    "officeFabricIconFontName": "PasteAsCode",
+    "properties": {}
+  }]
+}
