@@ -2,8 +2,13 @@
     "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
     "solution": {
         "name": "Enhanced PowerApps WebPart",
+        "iconPath": "assets/appicon.png",
         "id": "601b7688-1e9c-468c-b9a3-e4bb4e14edcd",
-        "version": "1.2.0.0",
+        "version": "1.3.0.0",
+        "supportedLocales": [
+            "en-us",
+            "fr-fr"
+        ],
         "includeClientSideAssets": true,
         "isDomainIsolated": false,
         "developer": {
@@ -12,6 +17,23 @@
             "privacyUrl": "",
             "termsOfUseUrl": "",
             "mpnId": "Undefined-1.13.1"
+        },
+        "metadata": {
+            "shortDescription": {
+                "default": "Allows contributors to integrate their Canvas App in an effichient way, with full control on the display and the environment context to interact with the app",
+                "fr-fr": "Permet aux contributeurs d'intégrer efficaement leur Application Canvas, avec un contrôle total sur l'affichage et les paramètres d'environnement pour interagir avec l'application."
+            },
+            "longDescription": {
+                "default": "Allows contributors to integrate their Canvas App in an effichient way, with full control on the display and the environment context to interact with the app",
+                "fr-fr": "Permet aux contributeurs d'intégrer efficaement leur Application Canvas, avec un contrôle total sur l'affichage et les paramètres d'environnement pour interagir avec l'application."
+            },
+            "screenshotPaths": [],
+            "videoUrl": "",
+            "categories": [
+                "Content management",
+                "Site Design",
+                "Collaboration"
+            ]
         }
     },
     "paths": {
