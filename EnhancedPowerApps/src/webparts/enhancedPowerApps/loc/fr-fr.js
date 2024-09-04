@@ -4,7 +4,7 @@ define([], function() {
     ThemeValueFieldLabel: "Propriétés de la variante du thème",
     ThemeValuePreLabel: "Sélectionnez les couleurs du thème que vous souhaitez transmettre à votre application. Vous pouvez l'utiliser pour rendre votre application sensible aux thèmes.",
     ThemeGroupName: "Thème",
-    DynamicsPropNameDescriptionLabel: "Quel nom voulez-vous utiliser lorsque vous récupérez ce paramètre dans Power Apps ? Par exemple : "id".",
+    DynamicsPropNameDescriptionLabel: "Quel nom voulez-vous utiliser lorsque vous récupérez ce paramètre dans Power Apps ? Par exemple : 'id'.",
     DynamicPropsNameFieldLabel: "Nom du paramètre",
     DynamicPropFieldLabel: "Source de propriété dynamique",
     SelectDynamicSource: "Sélectionnez une source de propriété dynamique",
