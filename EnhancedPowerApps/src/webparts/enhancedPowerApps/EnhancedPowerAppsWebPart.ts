@@ -155,6 +155,145 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+    
+    // #region Appearance property fields
+    const _appearanceGroupFields:any[] = [
+      PropertyPaneToggle('border', {
+        label: strings.BorderFieldLabel
+      }),
+      PropertyPaneChoiceGroup('layout', {
+        label: strings.LayoutFieldLabel,
+        options: [
+          {
+            key: 'FixedHeight',
+            text: strings.LayoutFixedHeightOption,
+            iconProps: {
+              officeFabricIconFontName: 'FullWidth'
+            }
+          },
+          {
+            key: 'AspectRatio',
+            text: strings.LayoutAspectRatioOption,
+            iconProps: {
+              officeFabricIconFontName: 'AspectRatio'
+            }
+          }
+        ]
+      })
+    ];
+
+    if (this.properties.layout === "FixedHeight") {
+      _appearanceGroupFields.push(
+        PropertyPaneTextField('height', {
+          label: strings.HeightFieldLabel
+        })
+      );
+    }
+
+    if (this.properties.layout === "AspectRatio") {
+      _appearanceGroupFields.push(
+        PropertyPaneChoiceGroup('aspectratio', {
+          label: strings.AspectRatioFieldLabel,
+          options: [
+            {
+              key: '16:9',
+              text: '16:9',
+            },
+            {
+              key: '3:2',
+              text: '3:2',
+            },
+            {
+              key: '16:10',
+              text: '16:10',
+            },
+            {
+              key: '4:3',
+              text: '4:3',
+            },
+            {
+              key: 'Custom',
+              text: strings.AspectRatioCustomOption,
+            }
+          ]
+        })
+      );
+
+      if (this.properties.aspectratio === "Custom") {
+        _appearanceGroupFields.push(
+          PropertyPaneTextField('width', {
+            label: strings.WidthFieldLabel,
+          })
+        );
+
+        _appearanceGroupFields.push(
+          PropertyPaneTextField('height', {
+            label: strings.HeightFieldLabel,
+          })
+        );
+      }
+    }
+    // #endregion
+
+    // #region Dynamic property fields
+    const _dynamicPropertiesGroupFields:any[] = [
+      PropertyPaneHTML({
+        key: 'useDynamicProp',
+        html: Text.format(strings.DynamicsPropsGroupDescription1, this.properties.dynamicPropName!== undefined ?this.properties.dynamicPropName:'parametername')
+      }),
+      PropertyPaneHTML({
+        key: 'useDynamicProp',
+        html: strings.DynamicsPropsGroupDescription2
+      }),
+      PropertyPaneToggle('useDynamicProp', {
+        checked: this.properties.useDynamicProp === true,
+        label: strings.UseDynamicPropsFieldLabel
+      })
+    ];
+
+    if (this.properties.useDynamicProp === true) {
+      _dynamicPropertiesGroupFields.push(PropertyPaneDynamicFieldSet({
+        label: strings.SelectDynamicSource,
+        fields: [
+          PropertyPaneDynamicField('dynamicProp', {
+            label: strings.DynamicPropFieldLabel
+          })
+        ]
+      }));
+      _dynamicPropertiesGroupFields.push(PropertyPaneTextField('dynamicPropName', {
+        label: strings.DynamicPropsNameFieldLabel,
+        description: strings.DynamicsPropNameDescriptionLabel,
+        value: this.properties.dynamicPropName
+      }));
+    }
+    // #endregion
+
+    // #region Static property fields
+    const _staticPropertiesGroupFields:any[] = [
+      PropertyPaneHTML({
+        key: 'useStaticProp',
+        html: Text.format(strings.StaticPropertiesGroupDescription, this.properties.staticPropName !== undefined ? this.properties.staticPropName:'parametername')
+      }),
+      PropertyPaneToggle('useStaticProp', {
+        checked: this.properties.useStaticProp === true,
+        label: strings.UseStaticPropsFieldLabel
+      })
+    ];
+
+    if(this.properties.useStaticProp === true) {
+      _staticPropertiesGroupFields.push(PropertyPaneTextField('staticPropName', {
+        label: strings.StaticPropertyNameFieldLabel,
+        description: "",
+        value: this.properties.staticPropName
+      }));
+      _staticPropertiesGroupFields.push(PropertyPaneTextField('staticPropValue', {
+        label: strings.StaticPropertyValueLabel,
+        description: "",
+        value: this.properties.staticPropValue
+      }));
+    }
+    // #endregion
+
     return {
       pages: [
         {
@@ -175,120 +314,18 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
             {
               groupName: strings.AppearanceGroupName,
               isCollapsed: true,
-              groupFields: [
-                PropertyPaneToggle('border', {
-                  label: strings.BorderFieldLabel
-                }),
-                PropertyPaneChoiceGroup('layout', {
-                  label: strings.LayoutFieldLabel,
-                  options: [
-                    {
-                      key: 'FixedHeight',
-                      text: strings.LayoutFixedHeightOption,
-                      iconProps: {
-                        officeFabricIconFontName: 'FullWidth'
-                      }
-                    },
-                    {
-                      key: 'AspectRatio',
-                      text: strings.LayoutAspectRatioOption,
-                      iconProps: {
-                        officeFabricIconFontName: 'AspectRatio'
-                      }
-                    }
-                  ]
-                }),
-                this.properties.layout === "FixedHeight" && PropertyPaneTextField('height', {
-                  label: strings.HeightFieldLabel
-                }),
-                this.properties.layout === "AspectRatio" && PropertyPaneChoiceGroup('aspectratio', {
-                  label: strings.AspectRatioFieldLabel,
-                  options: [
-                    {
-                      key: '16:9',
-                      text: '16:9',
-                    },
-                    {
-                      key: '3:2',
-                      text: '3:2',
-                    },
-                    {
-                      key: '16:10',
-                      text: '16:10',
-                    },
-                    {
-                      key: '4:3',
-                      text: '4:3',
-                    },
-                    {
-                      key: 'Custom',
-                      text: strings.AspectRatioCustomOption,
-                    }
-                  ]
-                }),
-                this.properties.layout === "AspectRatio" && this.properties.aspectratio === "Custom" && PropertyPaneTextField('width', {
-                  label: strings.WidthFieldLabel,
-                }),
-                this.properties.layout === "AspectRatio" && this.properties.aspectratio === "Custom" && PropertyPaneTextField('height', {
-                  label: strings.HeightFieldLabel,
-                }),
-              ]
+              groupFields: _appearanceGroupFields
             },
             {
               groupName: strings.DynamicPropertiesGroupLabel,
               isCollapsed: true,
-              groupFields: [
-                PropertyPaneHTML({
-                  key: 'useDynamicProp',
-                  html: Text.format(strings.DynamicsPropsGroupDescription1, this.properties.dynamicPropName!== undefined ?this.properties.dynamicPropName:'parametername')
-                }),
-                PropertyPaneHTML({
-                  key: 'useDynamicProp',
-                  html: strings.DynamicsPropsGroupDescription2
-                }),
-                PropertyPaneToggle('useDynamicProp', {
-                  checked: this.properties.useDynamicProp === true,
-                  label: strings.UseDynamicPropsFieldLabel
-                }),
-                this.properties.useDynamicProp === true && PropertyPaneDynamicFieldSet({
-                  label: strings.SelectDynamicSource,
-                  fields: [
-                    PropertyPaneDynamicField('dynamicProp', {
-                      label: strings.DynamicPropFieldLabel
-                    })
-                  ]
-                }),
-                this.properties.useDynamicProp === true && PropertyPaneTextField('dynamicPropName', {
-                  label: strings.DynamicPropsNameFieldLabel,
-                  description: strings.DynamicsPropNameDescriptionLabel,
-                  value: this.properties.dynamicPropName
-                })
-              ]
+              groupFields: _dynamicPropertiesGroupFields
             },
             {
               groupName: strings.StaticPropertiesGroupLabel,
               
               isCollapsed: true,
-              groupFields: [
-                PropertyPaneHTML({
-                  key: 'useStaticProp',
-                  html: Text.format(strings.StaticPropertiesGroupDescription, this.properties.staticPropName !== undefined ? this.properties.staticPropName:'parametername')
-                }),
-                PropertyPaneToggle('useStaticProp', {
-                  checked: this.properties.useStaticProp === true,
-                  label: strings.UseStaticPropsFieldLabel
-                }),
-                this.properties.useStaticProp === true && PropertyPaneTextField('staticPropName', {
-                  label: strings.StaticPropertyNameFieldLabel,
-                  description: "",
-                  value: this.properties.staticPropName
-                }),
-                this.properties.useStaticProp === true && PropertyPaneTextField('staticPropValue', {
-                  label: strings.StaticPropertyValueLabel,
-                  description: "",
-                  value: this.properties.staticPropValue
-                })
-              ]
+              groupFields: _staticPropertiesGroupFields
             },
             {
               groupName: strings.ThemeGroupName,

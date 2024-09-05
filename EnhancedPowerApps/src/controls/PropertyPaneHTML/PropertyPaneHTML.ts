@@ -39,10 +39,6 @@ export class PropertyPaneHTMLBuilder implements IPropertyPaneField<IPropertyPane
       this.elem = elem;
     }
 
-    const content = {
-      __dangerousHTML: this.properties.html
-    };
-
     const element: React.ReactElement = React.createElement(PropertyPaneHTMLHost,{
       html: this.properties.html
     });

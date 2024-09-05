@@ -5,7 +5,7 @@ export default class PropertyPaneHTMLHost extends React.Component<IPropertyPaneH
 
   public render(): JSX.Element {
     return (
-          <div dangerouslySetInnerHTML={{ __html: this.props.html }}></div>
+          <div dangerouslySetInnerHTML={{ __html: this.props.html }} />
     );
   }
 }

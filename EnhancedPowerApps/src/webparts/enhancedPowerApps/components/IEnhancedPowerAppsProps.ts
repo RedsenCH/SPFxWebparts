@@ -1,5 +1,3 @@
-import { DynamicProperty } from '@microsoft/sp-component-base';
-import { DisplayMode } from "@microsoft/sp-core-library";
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
 export interface IEnhancedPowerAppsProps {

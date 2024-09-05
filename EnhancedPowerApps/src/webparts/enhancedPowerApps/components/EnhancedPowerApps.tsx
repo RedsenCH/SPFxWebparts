@@ -34,7 +34,7 @@ export default class EnhancedPowerApps extends React.Component<IEnhancedPowerApp
 
     // The only thing we need for this web part to be configured is an app link or app id
     const needConfiguration: boolean = !appWebLink;
-
+    
     const { semanticColors }: IReadonlyTheme = themeVariant;
 
     // If we passed a dynamic property, add it as a query string parameter
@@ -42,7 +42,7 @@ export default class EnhancedPowerApps extends React.Component<IEnhancedPowerApp
 
     // We can take an app id or a full link. We'll assume (for now) that people are passing a valid app URL
     // would LOVE to find an API to retrieve list of valid apps
-    const appUrl: string = appWebLink && appWebLink.indexOf('https://') != 0 ? `https://apps.powerapps.com/play/${appWebLink}` : appWebLink;
+    const appUrl: string = appWebLink && appWebLink.indexOf('https://') !== 0 ? `https://apps.powerapps.com/play/${appWebLink}` : appWebLink;
 
     // Build the portion of the URL where we're passing theme colors
     let themeParams: string = "";
@@ -50,7 +50,6 @@ export default class EnhancedPowerApps extends React.Component<IEnhancedPowerApp
     if (themeValues && themeValues.length > 0) {
       themeValues.forEach((themeValue: string) => {
         try {
-
           const themeColor: string = semanticColors[themeValue];
           themeParams = themeParams + `&${themeValue}=${encodeURIComponent(themeColor)}`;
         } catch (e) {
@@ -82,7 +81,7 @@ export default class EnhancedPowerApps extends React.Component<IEnhancedPowerApp
         { this.props.appWebLink &&
         <iframe src={frameUrl} scrolling="no" allow="geolocation *; microphone *; camera *; fullscreen *;" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-forms allow-orientation-lock allow-downloads" width={this.props.width} height={height}
         frameBorder={border ? "1": "0"}
-        ></iframe>
+        /> 
         }
          </>
          }

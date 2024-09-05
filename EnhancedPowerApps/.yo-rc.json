@@ -1,29 +1,19 @@
 {
-  "@pnp/generator-spfx": {
-    "framework": "react",
-    "pnpFramework": "reactjs.plus",
-    "pnp-libraries": [
-      "@pnp/spfx-property-controls",
-      "@pnp/spfx-controls-react",
-      "rush@3.3"
-    ],
-    "pnp-ci": "no-devops",
-    "pnp-vetting": [
-      "webpack-analyzer",
-      "stylelint",
-      "csscomb"
-    ],
-    "spfxenv": "spo",
-    "pnp-testing": []
-  },
   "@microsoft/generator-sharepoint": {
-    "environment": "spo",
-    "framework": "react",
+    "plusBeta": false,
     "isCreatingSolution": true,
-    "version": "1.11.0",
+    "nodeVersion": "18.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.19.0",
     "libraryName": "react-enhanced-powerapps",
     "libraryId": "601b7688-1e9c-468c-b9a3-e4bb4e14edcd",
+    "environment": "spo",
     "packageManager": "npm",
+    "solutionName": "EnhancedPowerApps",
+    "solutionShortDescription": "",
     "isDomainIsolated": false,
     "componentType": "webpart"
   }
