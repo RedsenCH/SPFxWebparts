@@ -31,12 +31,13 @@ export class HtmlMarkupHelper {
      * @returns true if iframe code is found, false otherwise
      */
     public static hasIframe(htmlcontent: string): boolean {
-        if (htmlcontent && htmlcontent.length > 0 && htmlcontent.trim().length > 0) {
-            const regex:RegExp = /<iframe/g;
-            return regex.test(htmlcontent.toLowerCase());
-        } else {
-            return false;
-        }
+        // if (htmlcontent && htmlcontent.length > 0 && htmlcontent.trim().length > 0) {
+        //     const regex:RegExp = /<iframe/g;
+        //     return regex.test(htmlcontent.toLowerCase());
+        // } else {
+        //     return false;
+        // }
+        return false;
     }
 
     /**

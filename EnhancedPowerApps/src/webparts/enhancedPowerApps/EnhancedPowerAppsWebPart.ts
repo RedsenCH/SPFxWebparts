@@ -6,7 +6,8 @@ import {
   PropertyPaneTextField,
   PropertyPaneToggle,
   PropertyPaneLabel,
-  PropertyPaneChoiceGroup
+  PropertyPaneChoiceGroup,
+  // IPropertyPaneField
 } from '@microsoft/sp-property-pane';
 
 import * as strings from 'EnhancedPowerAppsWebPartStrings';
@@ -24,9 +25,13 @@ import { DynamicProperty } from '@microsoft/sp-component-base';
 import {
   BaseClientSideWebPart,
   IWebPartPropertiesMetadata,
+} from '@microsoft/sp-webpart-base';
+
+import {
   PropertyPaneDynamicFieldSet,
   PropertyPaneDynamicField
-} from '@microsoft/sp-webpart-base';
+} from '@microsoft/sp-property-pane';
+
 
 /**
  * Use this for theme awareness
@@ -41,23 +46,30 @@ import {
  * Use the multi-select for large checklists
  */
 import { PropertyFieldMultiSelect } from '@pnp/spfx-property-controls/lib/PropertyFieldMultiSelect';
+// import { PropertyFieldCollectionData, CustomCollectionFieldType, IPropertyFieldCollectionDataPropsInternal } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 import { ThemeVariantSlots } from './ThemeVariantSlots';
-import { PropertyPaneHTML } from '../../controls/PropertyPaneHTML/PropertyPaneHTML';
 
 /**
  * Super-cool text functions included in SPFx that people don't use often enough
  */
 import { Text } from '@microsoft/sp-core-library';
+import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls';
 
 export interface IEnhancedPowerAppsWebPartProps {
   displayMode: string;
-  dynamicProp: DynamicProperty<string>;
   appWebLink: string;
+  dynamicProp: DynamicProperty<string>;
   useDynamicProp: boolean;
+
+  dynamicPropertiesConfig: any[];
+
+  /** BEGIN - Old implementation kept for backward compatibility*/
   dynamicPropName: string;
   useStaticProp: boolean;
   staticPropName: string;
   staticPropValue: string;
+  /** END - Old implementation kept for backward compatibility*/
+
   border: boolean;
   layout: 'FixedHeight'|'AspectRatio';
   height: number;
@@ -237,14 +249,20 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
 
     // #region Dynamic property fields
     const _dynamicPropertiesGroupFields:any[] = [
-      PropertyPaneHTML({
-        key: 'useDynamicProp',
-        html: Text.format(strings.DynamicsPropsGroupDescription1, this.properties.dynamicPropName!== undefined ?this.properties.dynamicPropName:'parametername')
+      PropertyPaneWebPartInformation({
+        description: Text.format(strings.DynamicsPropsGroupDescription1, this.properties.dynamicPropName!== undefined ?this.properties.dynamicPropName:'parametername'),
+        moreInfoLink: null,
+        videoProperties: null,
+        key: 'dynamicPropertiesId1'
       }),
-      PropertyPaneHTML({
-        key: 'useDynamicProp',
-        html: strings.DynamicsPropsGroupDescription2
+      PropertyPaneWebPartInformation({
+        description: strings.DynamicsPropsGroupDescription2,
+        moreInfoLink: null,
+        videoProperties: null,
+        key: 'dynamicPropertiesId2'
       }),
+
+
       PropertyPaneToggle('useDynamicProp', {
         checked: this.properties.useDynamicProp === true,
         label: strings.UseDynamicPropsFieldLabel
@@ -252,6 +270,10 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
     ];
 
     if (this.properties.useDynamicProp === true) {
+      
+      // _dynamicPropertiesGroupFields.push(this._buildPropertyFieldCollectionData());
+      
+      
       _dynamicPropertiesGroupFields.push(PropertyPaneDynamicFieldSet({
         label: strings.SelectDynamicSource,
         fields: [
@@ -270,9 +292,11 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
 
     // #region Static property fields
     const _staticPropertiesGroupFields:any[] = [
-      PropertyPaneHTML({
-        key: 'useStaticProp',
-        html: Text.format(strings.StaticPropertiesGroupDescription, this.properties.staticPropName !== undefined ? this.properties.staticPropName:'parametername')
+      PropertyPaneWebPartInformation({
+        description: Text.format(strings.StaticPropertiesGroupDescription, this.properties.staticPropName !== undefined ? this.properties.staticPropName:'parametername'),
+        moreInfoLink: null,
+        videoProperties: null,
+        key: 'useStaticProp'
       }),
       PropertyPaneToggle('useStaticProp', {
         checked: this.properties.useStaticProp === true,
@@ -340,10 +364,12 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
                   options: ThemeVariantSlots,
                   selectedKeys: this.properties.themeValues
                 }),
-                PropertyPaneHTML({
-                  key: 'themeValuesPost',
-                  html: strings.ThemeValuePostLabel
-                }),
+                PropertyPaneWebPartInformation({
+                  description: strings.ThemeValuePostLabel,
+                  moreInfoLink: null,
+                  videoProperties: null,
+                  key: 'themeValuesPost'
+                })
               ]
             }
           ]
@@ -352,6 +378,78 @@ export default class EnhancedPowerAppsWebPart extends BaseClientSideWebPart<IEnh
     };
   }
 
+  
+  // private _buildPropertyFieldCollectionData(): IPropertyPaneField<IPropertyFieldCollectionDataPropsInternal> {
+  //   return PropertyFieldCollectionData("dynamicPropertiesConfig", {
+  //     key: "collectionData",
+  //     label: "Collection data",
+  //     panelHeader: "Collection data panel header",
+  //     manageBtnLabel: "Manage collection data",
+  //     value: this.properties.dynamicPropertiesConfig,
+  //     fields: [
+  //       {
+  //         id: "type",
+  //         title: strings.PropertyPane.DynamicFieldCollection.ParameterType.Title,
+  //         type: CustomCollectionFieldType.dropdown,
+  //         options: [
+  //           {
+  //             key: "dynamic",
+  //             text: strings.PropertyPane.DynamicFieldCollection.ParameterType.OptionLabelDynamic
+  //           },
+  //           {
+  //             key: "static",
+  //             text: strings.PropertyPane.DynamicFieldCollection.ParameterType.OptionLabelStatic
+  //           }
+  //         ],
+  //         required: true
+  //       },
+  //       {
+  //         id: "test",
+  //         title: "test",
+  //         type: CustomCollectionFieldType.custom
+  //       },
+  //       {
+  //         id: "Lastname",
+  //         title: "Lastname",
+  //         type: CustomCollectionFieldType.string,
+  //       },
+  //       {
+  //         id: "Age",
+  //         title: "Age",
+  //         type: CustomCollectionFieldType.number,
+  //         required: true
+  //       },
+  //       {
+  //         id: "City",
+  //         title: "Favorite city",
+  //         type: CustomCollectionFieldType.dropdown,
+  //         options: [
+  //           {
+  //             key: "antwerp",
+  //             text: "Antwerp"
+  //           },
+  //           {
+  //             key: "helsinki",
+  //             text: "Helsinki"
+  //           },
+  //           {
+  //             key: "montreal",
+  //             text: "Montreal"
+  //           }
+  //         ],
+  //         required: true
+  //       },
+  //       {
+  //         id: "Sign",
+  //         title: "Signed",
+  //         type: CustomCollectionFieldType.boolean
+  //       }
+  //     ],
+  //     disabled: false
+  //   })
+  // }
+  
+  
   protected get propertiesMetadata(): IWebPartPropertiesMetadata {
     return {
       // Specify the web part properties data type to allow the address

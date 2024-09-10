@@ -14,7 +14,7 @@ define([], function() {
       CodeEditor: {
         Label: "Edit HTML Code",
         PanelTitle: "Edit HTML Code",
-        ErrorMessage: "JavaScript code or iframe found in code. Due to security restriction these parts of code won't be rendered or executed."
+        ErrorMessage: "JavaScript code found in code. Due to security restriction these codes won't be executed."
       }
     },
     Placeholder: {

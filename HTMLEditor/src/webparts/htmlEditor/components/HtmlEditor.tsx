@@ -18,7 +18,8 @@ export default class HtmlEditor extends React.Component<IHtmlEditorProps, {}> {
 
   public render(): React.ReactElement<IHtmlEditorProps> {
 
-    const cleanHTML = DOMPurify.sanitize(this.props.content, {FORBID_TAGS: ['script', 'iframe'], ADD_TAGS: ['style'], FORCE_BODY: true});
+    // const cleanHTML = DOMPurify.sanitize(this.props.content, {FORBID_TAGS: ['script', 'iframe'], ADD_TAGS: ['style'], FORCE_BODY: true});
+    const cleanHTML = DOMPurify.sanitize(this.props.content, {FORBID_TAGS: ['script'], ADD_TAGS: ['style', 'iframe'], FORCE_BODY: true});
     const cleanContent = <span dangerouslySetInnerHTML={{ __html: cleanHTML }} />;
 
     return (

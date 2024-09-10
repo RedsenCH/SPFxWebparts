@@ -31,6 +31,15 @@ declare interface IEnhancedPowerAppsWebPartStrings {
   StaticPropertyNameFieldLabel: string;
   StaticPropertyValueLabel: string;
   UseStaticPropsFieldLabel: string;
+  PropertyPane: {
+    DynamicFieldCollection: {
+      ParameterType: {
+        Title: string;
+        OptionLabelDynamic: string;
+        OptionLabelStatic: string;
+      }
+    }
+  }
 }
 
 declare module 'EnhancedPowerAppsWebPartStrings' {

@@ -14,7 +14,7 @@ define([], function() {
       CodeEditor: {
         Label: "Editer le code HTML",
         PanelTitle: "Editer le code HTML",
-        ErrorMessage: "Du code Javascript ou iframe a été détecté. Pour des raison de sécurité ces portions de code ne seront pas exécutées/affichées."
+        ErrorMessage: "Du code Javascript a été détecté. Pour des raisons de sécurité ces portions de code ne seront pas exécutées"
       }
     },
     Placeholder: {
