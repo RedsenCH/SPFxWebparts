@@ -5,6 +5,7 @@ export interface IHtmlEditorProps {
   content: string;
   displayMode: DisplayMode;
   hideTitle: boolean;
+  removeIframeBorders: boolean;
   isDarkTheme: boolean;
   openPropertyPane: () => void;
   updateTitle: (value: string) => void;

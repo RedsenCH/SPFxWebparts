@@ -19,6 +19,7 @@ export interface IHtmlEditorWebPartProps {
   HtmlContent: string;
   removePadding: boolean;
   hideTitle: boolean;
+  removeIframeBorders: boolean;
 }
 
 export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditorWebPartProps> {
@@ -76,6 +77,7 @@ export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditor
         title: this.properties.title,
         content: this.properties.HtmlContent,
         hideTitle: this.properties.hideTitle,
+        removeIframeBorders: this.properties.removeIframeBorders,
         displayMode: this.displayMode,
         isDarkTheme: this._isDarkTheme,
         openPropertyPane: () => {
@@ -164,6 +166,19 @@ export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditor
       this._propertyPaneCodeEditorLoader
     ];
     /* eslint-enable @typescript-eslint/no-explicit-any */
+
+    if (HtmlMarkupHelper.hasIframe(this.properties.HtmlContent)) {
+      webPartOptions.push(
+        PropertyPaneToggle("removeIframeBorders", {
+          label: strings.PropertyPane.RemoveIframeBorder.Label,
+          checked: this.properties.removeIframeBorders,
+          onText: strings.PropertyPane.RemoveIframeBorder.OnText,
+          offText: strings.PropertyPane.RemoveIframeBorder.OffText
+        })
+      )
+    } else {
+      this.properties.removeIframeBorders = false;
+    }
     
     return {
       pages: [

@@ -15,6 +15,11 @@ define([], function() {
         Label: "Edit HTML Code",
         PanelTitle: "Edit HTML Code",
         ErrorMessage: "JavaScript code found in code. Due to security restriction these codes won't be executed."
+      },
+      RemoveIframeBorder: {
+        Label: "Hide iframe borders",
+        OnText: "borders hidden",
+        OffText: "borders visible"
       }
     },
     Placeholder: {

@@ -8,6 +8,14 @@
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
+
+  .htmlContent {
+    &.noIframeBorders {
+      iframe {
+        border: none !important;
+      }
+    }
+  }
 }
 
 .welcome {

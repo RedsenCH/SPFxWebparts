@@ -31,12 +31,12 @@ export class HtmlMarkupHelper {
      * @returns true if iframe code is found, false otherwise
      */
     public static hasIframe(htmlcontent: string): boolean {
-        // if (htmlcontent && htmlcontent.length > 0 && htmlcontent.trim().length > 0) {
-        //     const regex:RegExp = /<iframe/g;
-        //     return regex.test(htmlcontent.toLowerCase());
-        // } else {
-        //     return false;
-        // }
+        if (htmlcontent && htmlcontent.length > 0 && htmlcontent.trim().length > 0) {
+            const regex:RegExp = /<iframe/g;
+            return regex.test(htmlcontent.toLowerCase());
+        } else {
+            return false;
+        }
         return false;
     }
 
@@ -47,7 +47,7 @@ export class HtmlMarkupHelper {
      */
     public static hasForbiddenCode(htmlcontent: string): boolean {
         const hasJS = this.hasJavascript(htmlcontent);
-        const hasIframe = this.hasIframe(htmlcontent);
+        const hasIframe = false; //this.hasIframe(htmlcontent);
         
         return (hasJS || hasIframe);
     }

@@ -14,6 +14,11 @@ declare interface IHtmlEditorWebPartStrings {
       Label: string;
       PanelTitle: string;
       ErrorMessage: string;
+    },
+    RemoveIframeBorder: {
+      Label: string;
+      OnText: string;
+      OffText: string;
     }
   },
   Placeholder: {

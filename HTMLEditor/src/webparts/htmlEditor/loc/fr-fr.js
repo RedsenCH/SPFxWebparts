@@ -15,6 +15,11 @@ define([], function() {
         Label: "Editer le code HTML",
         PanelTitle: "Editer le code HTML",
         ErrorMessage: "Du code Javascript a été détecté. Pour des raisons de sécurité ces portions de code ne seront pas exécutées"
+      },
+      RemoveIframeBorder: {
+        Label: "Supprimer la bordure de l'iframe",
+        OnText: "bordure masquée",
+        OffText: "bordure visible"
       }
     },
     Placeholder: {
