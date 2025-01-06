@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "8b97cabd-b2be-4145-8a79-023b1339fd10",
+  "alias": "TableOfContentsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Advanced" },
+    "title": { 
+      "default": "Table of contents",
+      "fr-fr": "Table des matières"
+    },
+    "description": { 
+      "default": "Automatically create a table of contents in a modern page, based on H1 H2 and H3 titles and page section headers",
+      "fr-fr": "Crée automatiquement une table des matières dans une page moderne, sur la base des titres H1, H2 et H3 et des en-têtes de section de la page." 
+    },
+    "officeFabricIconFontName": "AllApps",
+    "properties": {
+      "showSectionTitles": true,
+      "showHeading1": true,
+      "showHeading2": true,
+      "showHeading3": true,
+      "hideInMobileView": false
+    }
+  }]
+}

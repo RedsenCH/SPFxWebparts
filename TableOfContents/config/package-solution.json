@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Table of contents",
+    "id": "c9f223fa-4e5f-4f9e-9ccb-13e8bb96cee0",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Redsen",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "table-of-contents description"
+      },
+      "longDescription": {
+        "default": "table-of-contents description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "table-of-contents Feature",
+        "description": "The feature that activates elements of the table-of-contents solution.",
+        "id": "93801e99-948e-4dd6-a9e2-d1df92274195",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/table-of-contents.sppkg"
+  }
+}
