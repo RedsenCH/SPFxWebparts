@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 define([], function() {
   return {
-    "PropertyPaneDescription": "Description",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "AppLocalEnvironmentSharePoint": "The app is running on your local environment as SharePoint web part",
@@ -19,9 +19,9 @@ define([], function() {
     GroupFieldDisplayTitle: "Display settings",
 
     "PropertyPaneDescription": "Select which headings to include in the table of contents.",
-    "ShowHeading1FieldLabel": "Show Headings 1",
     "ShowHeading2FieldLabel": "Show Headings 2",
     "ShowHeading3FieldLabel": "Show Headings 3",
+    "ShowHeading4FieldLabel": "Show Headings 4",
 
     MenuType: "Menu type",
     MenuTypeStandard: "Standard",

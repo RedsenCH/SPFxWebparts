@@ -16,8 +16,8 @@
       "fr-fr": "Table des matières"
     },
     "description": { 
-      "default": "Automatically create a table of contents in a modern page, based on H1 H2 and H3 titles and page section headers",
-      "fr-fr": "Crée automatiquement une table des matières dans une page moderne, sur la base des titres H1, H2 et H3 et des en-têtes de section de la page." 
+      "default": "Automatically create a table of contents in a modern page, based on H2 H3 and H4 titles and page section headers",
+      "fr-fr": "Crée automatiquement une table des matières dans une page moderne, sur la base des titres H2, H3 et H4 et des en-têtes de section de la page." 
     },
     "officeFabricIconFontName": "AllApps",
     "properties": {

@@ -21,9 +21,9 @@ import { ITableOfContentsProps } from './components/ITableOfContentsProps';
 export interface ITableOfContentsWebPartProps {
   title: string;
   showSectionTitles: boolean;
-  showHeading1: boolean;
   showHeading2: boolean;
   showHeading3: boolean;
+  showHeading4: boolean;
 
   floatingMenu: boolean;
   floatingMenuButtonIcon: string;
@@ -58,9 +58,9 @@ export default class TableOfContentsWebPart extends BaseClientSideWebPart<ITable
         displayMode: this.displayMode,
         updateProperty: this.handleUpdateProperty,
 
-        showHeading2: this.properties.showHeading1,
-        showHeading3: this.properties.showHeading2,
-        showHeading4: this.properties.showHeading3,
+        showHeading2: this.properties.showHeading2,
+        showHeading3: this.properties.showHeading3,
+        showHeading4: this.properties.showHeading4,
 
         floatingMenu: this.properties.floatingMenu,
         floatingMenuButtonIcon: this.properties.floatingMenuButtonIcon,
@@ -204,14 +204,14 @@ export default class TableOfContentsWebPart extends BaseClientSideWebPart<ITable
               isCollapsed:false,
               groupFields: [
                 PropertyPaneLabel("", {text:strings.PropertyPaneDescription}),
-                PropertyPaneCheckbox('showHeading1', {
-                  text: strings.ShowHeading1FieldLabel
-                }),
                 PropertyPaneCheckbox('showHeading2', {
                   text: strings.ShowHeading2FieldLabel
                 }),
                 PropertyPaneCheckbox('showHeading3', {
                   text: strings.ShowHeading3FieldLabel
+                }),
+                PropertyPaneCheckbox('showHeading4', {
+                  text: strings.ShowHeading4FieldLabel
                 })
               ]
             },

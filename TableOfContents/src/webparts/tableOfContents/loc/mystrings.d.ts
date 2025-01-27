@@ -18,9 +18,9 @@ declare interface ITableOfContentsWebPartStrings {
   GroupFieldDisplayTitle: string;
   
   PropertyPaneDescription: string;
-  ShowHeading1FieldLabel: string;
   ShowHeading2FieldLabel: string;
   ShowHeading3FieldLabel: string;
+  ShowHeading4FieldLabel: string;
 
   MenuType: string;
   MenuTypeStandard: string;

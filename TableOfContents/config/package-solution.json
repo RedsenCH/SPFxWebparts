@@ -3,7 +3,7 @@
   "solution": {
     "name": "Table of contents",
     "id": "c9f223fa-4e5f-4f9e-9ccb-13e8bb96cee0",
-    "version": "1.0.0.0",
+    "version": "1.0.0.3",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
