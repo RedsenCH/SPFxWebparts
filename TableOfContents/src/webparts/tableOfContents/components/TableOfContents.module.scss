@@ -36,19 +36,21 @@
   li {
     &:global(.toc_level_0) {
       list-style-type: none;
+      color: #007480;
     }
 
     &:global(.toc_level_1) {
       list-style-type: none;
+      color: #007480;
     }
 
     &:global(.toc_level_2) {
       list-style-type: none;
+      color: #007480;
     }
   }
-
   a {
-    color: "[theme: accent, default: #0078d7]";
+    color: #007480;
     text-decoration: none;
 
     &:hover {
@@ -56,7 +58,7 @@
     }
 
     &:visited {
-      color: "[theme: accent, default: #0078d7]";
+      color: #007480;
     }
   }
 
