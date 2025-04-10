@@ -32,6 +32,13 @@ define([], function() {
     floatingMenuOpenOnLoad:"",
     floatingMenuButtonIconColor: "Icon color",
     floatingMenuButtonBackgroundColor: "Button background color",
+    floatingMenuBackgroundColor: "Menu background color",
+    floatingMenuLinksColor: "Menu links color",
+    floatingMenuLinkIcon: "Link icon",
+    floatingMenuLinkTextDecoration: "Link text decoration",
+    floatingMenuLinkTextDecorationNone: "None",
+    floatingMenuLinkTextDecorationUnderline: "Underline",
+    floatingMenuBorderColor: "Menu border color",
 
     "HideInMobileViewLabel": "Hide in mobile view",
     "CustomStyles": "Styling"

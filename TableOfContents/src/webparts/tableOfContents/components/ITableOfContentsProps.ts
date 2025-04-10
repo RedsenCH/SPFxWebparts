@@ -2,31 +2,36 @@ import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import { DisplayMode } from "@microsoft/sp-core-library";
 
 export interface ITableOfContentsProps {
-  isDarkTheme: boolean;
-  
-  environmentMessage: string;
-  hasTeamsContext: boolean;
-  userDisplayName: string;
+    isDarkTheme: boolean;
 
-  theme: IReadonlyTheme | undefined;
+    environmentMessage: string;
+    hasTeamsContext: boolean;
+    userDisplayName: string;
 
-  title: string;
-  displayMode: DisplayMode;
+    theme: IReadonlyTheme | undefined;
 
-  updateProperty: (value: string) => void;
+    title: string;
+    displayMode: DisplayMode;
 
-  showHeading2: boolean;
-  showHeading3: boolean;
-  showHeading4: boolean;
+    updateProperty: (value: string) => void;
 
-  hideInMobileView: boolean;
+    showHeading2: boolean;
+    showHeading3: boolean;
+    showHeading4: boolean;
 
-  floatingMenu: boolean;
-  floatingMenuOpenOnLoad: boolean;
-  floatingMenuButtonIcon: string;
-  floatingMenuButtonIconColor: string;
-  floatingMenuButtonBackgroundColor: string;
-  floatingMenuLabel: string;
+    hideInMobileView: boolean;
 
-  customStyles: string;
+    floatingMenu: boolean;
+    floatingMenuOpenOnLoad: boolean;
+    floatingMenuButtonIcon: string;
+    floatingMenuButtonIconColor: string;
+    floatingMenuButtonBackgroundColor: string;
+    floatingMenuLabel: string;
+    floatingMenuLinksColor: string;
+    floatingMenuBackgroundColor: string;
+    floatingMenuLinkTextDecoration: string;
+    floatingMenuLinkIcon?: string;
+    floatingMenuBorderColor: string;
+
+    customStyles: string;
 }

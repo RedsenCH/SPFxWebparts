@@ -9,18 +9,14 @@
   }
 
   .menuContainer {
-    width: 220px;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    // padding-right: 30px;
     position: fixed;
     bottom:70px;
     right:100px;
     z-index: 20;
     border: 1px solid rgb(237, 235, 233);
-    background-color: #fff;
     box-shadow: rgb(0 0 0 / 13%) 0px 1.6px 3.6px 0px, rgb(0 0 0 / 11%) 0px 0.3px 0.9px 0px;
     transition: box-shadow 0.5s ease 0s;
+    padding: 20px;
 
     .webpartTitle {
       text-align: center;
@@ -30,10 +26,21 @@
 
 .tableOfContents {
   ul {
-    padding-left: 25px;
+    padding-left: 5px;
+
+    ul {
+      padding-left: 15px;
+    }
   }
   
   li {
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    }
+
     &:global(.toc_level_0) {
       list-style-type: none;
     }
