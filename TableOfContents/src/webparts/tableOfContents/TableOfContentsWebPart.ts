@@ -315,7 +315,10 @@ export default class TableOfContentsWebPart extends BaseClientSideWebPart<ITable
                         key: "none",
                         text: strings.floatingMenuLinkTextDecorationNone,
                     },
-                    { key: "underline", text: "Underline" },
+                    {
+                        key: "underline",
+                        text: strings.floatingMenuLinkTextDecorationUnderline,
+                    },
                 ],
                 selectedKey: this.properties.floatingMenuLinkTextDecoration,
             }
