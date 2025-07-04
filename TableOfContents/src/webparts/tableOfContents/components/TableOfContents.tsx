@@ -2,9 +2,10 @@ import * as React from 'react';
 import styles from './TableOfContents.module.scss';
 import type { ITableOfContentsProps } from './ITableOfContentsProps';
 import { IButtonStyles, IconButton } from '@fluentui/react/lib/Button';
-import { IIconProps, Stack } from '@fluentui/react';
+import { Icon, IIconProps, Stack } from '@fluentui/react';
 import { WebPartTitle } from '@pnp/spfx-controls-react/lib/WebPartTitle';
 import { DisplayMode } from '@microsoft/sp-core-library';
+import { CSSProperties } from 'react';
 
 /**
  * Describes a link for a header
@@ -114,14 +115,17 @@ export default class TableOfContents extends React.Component<ITableOfContentsPro
       <>
       { (this.props.floatingMenu && this.props.displayMode === DisplayMode.Read) &&
         <div className={styles.floatingTableOfContent}>
-          <Stack className={styles.menuContainer} styles={this.state.showMenu ? {root:{display:"block"}} : {root:{display:"none"}}}>
-            <section className={styles.tableOfContents}>
-              <WebPartTitle displayMode={this.props.displayMode} title={this.props.title} updateProperty={this.props.updateProperty} className={styles.webpartTitle} />
-              <nav className='CustomSPToc'>
-                {toc}
-              </nav>
-            </section>
-          </Stack>
+          {
+            this.state.showMenu &&
+            <Stack className={styles.menuContainer} styles={{root:{backgroundColor: this.props.floatingMenuBackgroundColor, borderColor: this.props.floatingMenuBorderColor}}}>
+              <section className={styles.tableOfContents}>
+                <WebPartTitle displayMode={this.props.displayMode} title={this.props.title} updateProperty={this.props.updateProperty} className={styles.webpartTitle} />
+                <nav className='CustomSPToc'>
+                  {toc}
+                </nav>
+              </section>
+            </Stack>
+          }
           <IconButton 
             className={styles.iconButton} 
             iconProps={floatingButtonIcon}
@@ -318,14 +322,26 @@ export default class TableOfContents extends React.Component<ITableOfContentsPro
   private renderLinks(links: ITOCLink[], currentLevel:number = 0): JSX.Element[] {
     // for each link render a <li> element with a link. If the link has got childNodes, additionaly render <ul> with child links.
     const nestedLevel = currentLevel + 1;
+
+    const linkStyle: CSSProperties = {
+      color: this.props.floatingMenuLinksColor,
+      textDecoration: this.props.floatingMenuLinkTextDecoration,
+    };
     
-    let elements : any = []
-    elements = links.map((link, index) => {
+    const elements: any = links.map((link, index) => {
       if (link && link.element) {
         return (
           <li key={index} className={`toc_level_${currentLevel}`}>
-            <a onClick={this.scrollToHeader(link.element)} href={'#' + link.element.id}>{link.element.innerText}</a>
+            <span>
+              <Icon iconName={this.props.floatingMenuLinkIcon} /> 
+
+              <a onClick={this.scrollToHeader(link.element)} href={'#' + link.element.id} style={linkStyle}>
+                {link.element.innerText}
+              </a>
+            </span>
+            
             {link.childNodes.length > 0 ? (<ul>{this.renderLinks(link.childNodes, nestedLevel)}</ul>) : ''}
+          
           </li>
         );
       }
