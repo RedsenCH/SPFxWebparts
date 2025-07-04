@@ -20,6 +20,7 @@ export interface IHtmlEditorWebPartProps {
   removePadding: boolean;
   hideTitle: boolean;
   removeIframeBorders: boolean;
+  openAllLinksInNewTab: boolean;
 }
 
 export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditorWebPartProps> {
@@ -80,6 +81,7 @@ export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditor
         removeIframeBorders: this.properties.removeIframeBorders,
         displayMode: this.displayMode,
         isDarkTheme: this._isDarkTheme,
+        openAllLinksInNewTab : this.properties.openAllLinksInNewTab,
         openPropertyPane: () => {
           this.context.propertyPane.open();
         },
@@ -156,6 +158,12 @@ export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditor
         checked: this.properties.hideTitle,
         onText: strings.PropertyPane.HideTitle.OnText,
         offText: strings.PropertyPane.HideTitle.OffText
+      }),
+      PropertyPaneToggle("openAllLinksInNewTab", {
+        label: strings.PropertyPane.OpenAllLinksInNewTab.Label,
+        checked: this.properties.openAllLinksInNewTab,
+        onText: strings.PropertyPane.OpenAllLinksInNewTab.OnText,
+        offText: strings.PropertyPane.OpenAllLinksInNewTab.OffText
     }),
       PropertyFieldMessage("", {
           key: "htmlMarkupMessageKey",

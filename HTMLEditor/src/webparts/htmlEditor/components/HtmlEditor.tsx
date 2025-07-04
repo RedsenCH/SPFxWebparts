@@ -24,13 +24,15 @@ export default class HtmlEditor extends React.Component<IHtmlEditorProps, {}> {
       htmlContentClasses += " " + styles.noIframeBorders 
     }
 
-    DOMPurify.addHook('afterSanitizeAttributes', function (node) {
-      // set all elements owning target to target=_blank
-      if ('target' in node) {
-        node.setAttribute('target', '_blank');
-        node.setAttribute('rel', 'noopener');
-      }
-    });
+    if (this.props.openAllLinksInNewTab) {
+      DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+        // set all elements owning target to target=_blank
+        if ('target' in node) {
+          node.setAttribute('target', '_blank');
+          node.setAttribute('rel', 'noopener');
+        }
+      });
+    }
 
     // const cleanHTML = DOMPurify.sanitize(this.props.content, {FORBID_TAGS: ['script', 'iframe'], ADD_TAGS: ['style'], FORCE_BODY: true});
     const cleanHTML = DOMPurify.sanitize(this.props.content, {FORBID_TAGS: ['script'], ADD_TAGS: ['style', 'iframe'], FORCE_BODY: true});

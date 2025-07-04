@@ -11,6 +11,11 @@ define([], function() {
         OnText: "Hide title",
         OffText: "Show title"
       },
+      OpenAllLinksInNewTab: {
+        Label: "Open all links in a new tab",
+        OnText: "Yes",
+        OffText: "No"
+      },
       CodeEditor: {
         Label: "Edit HTML Code",
         PanelTitle: "Edit HTML Code",

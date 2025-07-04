@@ -10,6 +10,11 @@ declare interface IHtmlEditorWebPartStrings {
       OnText: string;
       OffText: string;
     },
+    OpenAllLinksInNewTab : {
+      Label : string;
+      OnText: string;
+      OffText: string
+    },
     CodeEditor: {
       Label: string;
       PanelTitle: string;
