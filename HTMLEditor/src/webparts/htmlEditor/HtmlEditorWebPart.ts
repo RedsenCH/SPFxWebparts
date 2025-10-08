@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
+import PnPTelemetry from "@pnp/telemetry-js";
 import { DisplayMode, Version } from '@microsoft/sp-core-library';
 import {
   type IPropertyPaneConfiguration,
@@ -31,6 +32,9 @@ export default class HtmlEditorWebPart extends BaseClientSideWebPart<IHtmlEditor
   constructor() {
     super();
     this.htmlContentUpdate = this.htmlContentUpdate.bind(this);
+    
+    const telemetry = PnPTelemetry.getInstance();
+    telemetry.optOut()
   }
 
   private htmlContentUpdate(_property: string, _oldVal: string, newVal: string): void {
