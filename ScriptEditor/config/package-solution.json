@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Script Editor WebPart",
+    "title" :"Script Editor WebPart",
+    "iconPath": "assets/appicon.png",
+    "id": "3bb3c87e-e86e-455f-92d8-8139587befd5",
+    "version": "1.0.0.0",
+    "supportedLocales": [
+       "en-us",
+       "fr-fr"
+     ],
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Redsen",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.19.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Allows contributors to securely add HTML/JS/CSS code in their SharePoint pages",
+        "fr-fr": "Permet aux contributeurs de pouvoir ajouter du code HTML/JS/CSS sur leur page de manière sécurisée"
+      },
+      "longDescription": {
+        "default": "Allows contributors to securely add HTML/JS/CSS code in their SharePoint pages",
+        "fr-fr": "Permet aux contributeurs de pouvoir ajouter du code HTML/JS/CSS sur leur page de manière sécurisée"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": [
+        "Content management",
+        "Site Design",
+        "Collaboration"
+      ]
+    },
+    "features": [
+      {
+        "title": "script-editor Feature",
+        "description": "The feature that activates elements of the script-editor solution.",
+        "id": "7abd9ab2-f84d-42f9-b770-4b049ee3f60c",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/script-editor.sppkg"
+  }
+}

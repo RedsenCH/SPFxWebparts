@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.19.0",
+    "libraryName": "script-editor",
+    "libraryId": "3bb3c87e-e86e-455f-92d8-8139587befd5",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Script Editor",
+    "solutionShortDescription": "Script Editor description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
