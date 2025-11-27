@@ -13,8 +13,8 @@
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Advanced" },
     "title": { 
-      "default": "HTML Editor",
-      "fr-fr": "Editeur HTML"
+      "default": "Script Editor",
+      "fr-fr": "Editeur de script"
     },
     "description": { 
       "default": "Securely add your HTML, CSS and JS markup to your page",

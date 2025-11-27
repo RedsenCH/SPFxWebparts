@@ -5,7 +5,7 @@
     "title" :"Script Editor WebPart",
     "iconPath": "assets/appicon.png",
     "id": "3bb3c87e-e86e-455f-92d8-8139587befd5",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "supportedLocales": [
        "en-us",
        "fr-fr"
@@ -47,6 +47,6 @@
     ]
   },
   "paths": {
-    "zippedPackage": "solution/script-editor.sppkg"
+    "zippedPackage": "solution/ScriptEditor.sppkg"
   }
 }
